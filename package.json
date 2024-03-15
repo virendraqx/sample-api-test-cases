@@ -4,15 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
     "test": "mocha",
-    "prepare": "husky",
     "dev": "node demo.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm test"
-    }
-  },
+  "husky": "node ./node_modules/husky/lib/bin.js",
   "keywords": [],
   "author": "",
   "license": "ISC",

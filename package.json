@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "prepare": "husky"
   },
   "husky": {
     "hooks": {
-      "pre-commit":"npm test"
+      "pre-commit": "npm test"
     }
   },
   "keywords": [],

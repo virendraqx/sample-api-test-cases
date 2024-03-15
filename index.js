@@ -2,6 +2,18 @@ const Fastify = require('fastify');
 const fastify = Fastify({
 	logger : true
 });
+
+
+
+
+
+
+
+
+
+
+
+
 // const express = require('express');
 // const app = express();
 

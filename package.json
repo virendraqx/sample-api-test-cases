@@ -8,7 +8,6 @@
     "test": "mocha",
     "dev": "node demo.js"
   },
-  "husky": "node ./node_modules/husky/lib/bin.js",
   "keywords": [],
   "author": "",
   "license": "ISC",

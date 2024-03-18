@@ -206,8 +206,12 @@ chai.should();
 let foo = 'bar';
 let beverages = { tea : [ 'chai', 'matcha', 'oolong' ] };
 
-foo.should.be.a('string');
-foo.should.equal('bar');
-foo.should.have.lengthOf(3);
-beverages.should.have.property('tea').with.lengthOf(3);
+describe('GET /api/tasks', () => {
+	it('It should GET all the tasks', () => {
+		foo.should.be.a('string');
+		foo.should.equal('bar');
+		foo.should.have.lengthOf(3);
+		beverages.should.have.property('tea').with.lengthOf(3);
+	});});
+
 

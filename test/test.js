@@ -12,7 +12,7 @@ let chai = require('chai');
 // // });
 // //Assertion Style
 chai.should();
-// let expect  = chai.expect;
+let expect  = chai.expect;
 // console.log(server);
 // chai.use(chaiHttp);
 

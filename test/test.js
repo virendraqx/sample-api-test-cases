@@ -1,6 +1,8 @@
 let chai = require('chai');
+// const supertest = require('supertest');
 // let chaiHttp = require('chai-http');
 // let server = require('../index');
+// let app = server();
 // before(async () => {
 // 	require('../index.js');
 // });
@@ -10,6 +12,7 @@ let chai = require('chai');
 // // });
 // //Assertion Style
 chai.should();
+// let expect  = chai.expect;
 // console.log(server);
 // chai.use(chaiHttp);
 
@@ -214,4 +217,27 @@ describe('GET /api/tasks', () => {
 		beverages.should.have.property('tea').with.lengthOf(3);
 	});});
 
+// describe('Fastify API Tests', () => {
+	// before((done) => {
+	// 	server.listen(0, (err) => {
+	// 		if (err) done(err);
+	// 		done();
+	// 	});
+	// });
+
+	// after(() => {
+	// 	server.close();
+	// });
+
+// 	it('should return status 200 and correct message for GET /api/data', (done) => {
+// 		supertest('http://localhost:4000')
+// 			.get('/api/task')
+// 			.expect(200)
+// 			.end((err, res) => {
+// 				if (err) return done(err);
+// 				expect(res.body.message).to.equal('Hello, world!');
+// 				done();
+// 			});
+// 	});
+// });
 

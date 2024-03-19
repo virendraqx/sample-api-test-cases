@@ -23,7 +23,7 @@ const tasks = [
 
 // GET
 fastify.get('/api/tasks' , (request, reply) => {
-	reply.send({ message: 'Hello, world!' });
+	reply.send(tasks);
 });
 
 // GET (BY ID)
@@ -82,7 +82,6 @@ fastify.delete('/api/tasks/:id', (request, reply) => {
 const port = process.env.PORT || 4000;
 
 fastify.listen({port}, (err,address)=>{
-	if(err)return
 	console.log(`server is listening on ${address}`);
 });
 

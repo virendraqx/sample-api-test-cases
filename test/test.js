@@ -3,13 +3,9 @@ const supertest = require('supertest');
 let chaiHttp = require('chai-http');
 let server = require('../index');	
 // let app = server();
-before(async () => {
-	require('../index.js');
-});
-after(async () => {
-	require('../index.js');
-	server.close()
-});
+// before(async () => {
+// 	require('../index.js');
+// });
 // let expect = chai.expect;
 // // server.get('/',(req,rep)=>{
 // // 	rep.send('hello world');
@@ -234,6 +230,11 @@ describe('Fastify API Tests', () => {
 			});
 		});
 		// server.close()
+});
+
+after(async () => {
+	require('../index.js');
+	server.close()
 });
 
 console.log('Last test case');

@@ -1,11 +1,15 @@
 let chai = require('chai');
 const supertest = require('supertest');
 let chaiHttp = require('chai-http');
-// let server = require('../index');	
+let server = require('../index');	
 // let app = server();
-// before(async () => {
-// 	require('../index.js');
-// });
+before(async () => {
+	require('../index.js');
+});
+after(async () => {
+	require('../index.js');
+	server.close()
+});
 // let expect = chai.expect;
 // // server.get('/',(req,rep)=>{
 // // 	rep.send('hello world');
@@ -208,7 +212,7 @@ chai.use(chaiHttp);
 // });
 let foo = 'bar';
 let beverages = { tea : [ 'chai', 'matcha', 'oolong' ] };
-let res = 'Hello, world!';
+
 describe('GET /api/tasks', () => {
 	console.log('1st test casese');
 	it('It should GET all the tasks', () => {
@@ -220,16 +224,16 @@ describe('GET /api/tasks', () => {
 
 describe('Fastify API Tests', () => {
 	console.log('2nd test casese');
-	it('should return status 200 and correct message for GET /api/data', () => {
-		// chai.request(server)
-		// 	.get('/api/task')
-		// 	.end((err, res) => {
-		// 		if (err) return done(err);
-				// expect(res).to.equal('Hello, world!');
-				foo.should.equal('bar');
-			// 	done();
-			// });
-	});
+	it('should return status 200 and correct message for GET /api/data', (done) => {
+		chai.request('http://localhost:4000')
+			.get('/api/task')
+			.end((err, res) => {
+				if (err) return done(err);
+				expect(res.body.message).to.equal('Hello, world!');
+				done();
+			});
+		});
+		// server.close()
 });
 
 console.log('Last test case');

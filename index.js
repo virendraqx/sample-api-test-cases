@@ -1,10 +1,9 @@
-// const Fastify = require('fastify');
-// const Fastify = require('fastify');
-// const fastify = Fastify({
-// 	logger : true
-// });
-const express = require('express');
-const app = express();
+const Fastify = require('fastify');
+const fastify = Fastify({
+	logger : true
+});
+// const express = require('express');
+// const app = express();
 
 const tasks = [
 	{
@@ -25,7 +24,7 @@ const tasks = [
 ];
 
 // GET
-app.get('/api/task' , (request, reply) => {
+fastify.get('/api/task' , (request, reply) => {
 	reply.send({ message: 'Hello, world!' });
 });
 
@@ -87,6 +86,7 @@ const port = process.env.PORT || 4000;
 // 	rep.send('hello');
 // });
 
-app.listen({port});
+fastify.listen({port});
+// fastify.close();
 
-module.exports = app;
+module.exports = fastify;

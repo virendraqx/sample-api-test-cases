@@ -1,11 +1,11 @@
 let chai = require('chai');
 const supertest = require('supertest');
 let chaiHttp = require('chai-http');
-let server = require('../index');	
+let server ;
 // let app = server();
-// before(async () => {
-// 	require('../index.js');
-// });
+before(async () => {
+	server = require('../index.js');
+});
 // let expect = chai.expect;
 // // server.get('/',(req,rep)=>{
 // // 	rep.send('hello world');
@@ -233,7 +233,6 @@ describe('Fastify API Tests', () => {
 });
 
 after(async () => {
-	require('../index.js');
 	server.close()
 });
 

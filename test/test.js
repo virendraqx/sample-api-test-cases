@@ -1,7 +1,7 @@
 let chai = require('chai');
 const supertest = require('supertest');
-// let chaiHttp = require('chai-http');
-// let server = require('../index');	
+let chaiHttp = require('chai-http');
+let server = require('../index');	
 // let app = server();
 // before(async () => {
 // 	require('../index.js');
@@ -10,11 +10,11 @@ const supertest = require('supertest');
 // // server.get('/',(req,rep)=>{
 // // 	rep.send('hello world');
 // // });
-// //Assertion Style
+// //Assertion Style is given below:
 chai.should();
 let expect  = chai.expect;
 // console.log(server);
-// chai.use(chaiHttp);
+chai.use(chaiHttp);
 
 // describe('Tasks API', () => {
 
@@ -210,6 +210,7 @@ let foo = 'bar';
 let beverages = { tea : [ 'chai', 'matcha', 'oolong' ] };
 
 describe('GET /api/tasks', () => {
+	console.log('1st test casese');
 	it('It should GET all the tasks', () => {
 		foo.should.be.a('string');
 		foo.should.equal('bar');
@@ -217,27 +218,17 @@ describe('GET /api/tasks', () => {
 		beverages.should.have.property('tea').with.lengthOf(3);
 	});});
 
-// describe('Fastify API Tests', () => {
-	// before((done) => {
-	// 	server.listen(0, (err) => {
-	// 		if (err) done(err);
-	// 		done();
-	// 	});
-	// });
+describe('Fastify API Tests', () => {
+	console.log('2nd test casese');
+	it('should return status 200 and correct message for GET /api/data', (done) => {
+		chai.request(server)
+			.get('/api/task')
+			.end((err, res) => {
+				if (err) return done(err);
+				expect(res.body.message).to.equal('Hello, world!');
+				done();
+			});
+	});
+});
 
-	// after(() => {
-	// 	server.close();
-	// });
-
-// 	it('should return status 200 and correct message for GET /api/data', (done) => {
-// 		supertest('http://localhost:4000')
-// 			.get('/api/task')
-// 			.expect(200)
-// 			.end((err, res) => {
-// 				if (err) return done(err);
-// 				expect(res.body.message).to.equal('Hello, world!');
-// 				done();
-// 			});
-// 	});
-// });
-
+console.log('Last test case');
